@@ -15,12 +15,16 @@
         <main>
           <div id="input">
             <h3>Pesos CLP</h3>
-            <input name="monto" type="number" id="monto" />
+            <input type="number" id="monto" placeholder="Cantidad en CLP"/>
   
             <h4>Moneda a Convertir</h4>
-            <select name="moneda" id="moneda"></select>
+            <select id="moneda">
+                <option value="dolar">Dólares (USD)</option>
+                <option value="euros">Euros (EUR)</option>
+                <option value="pesos">Pesos Argentinos (ARS)</option>
+            </select>
   
-            <button id="calculo">Buscar</button>
+            <button id="calculo">Convertir</button>
   
             <h4>Resultado:</h4>
             <p>$<span id="resultado">0</span></p>
@@ -29,13 +33,10 @@
           <div id="grafica">
             <canvas id="Chart"></canvas>
           </div>
-  
-          <div id="items">
-            
-          </div>
         </main>
       </div>
     
     <script src="./assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
