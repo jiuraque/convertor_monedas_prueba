@@ -14,13 +14,20 @@ function handleInput() {
     const amount = parseFloat(amountInput.value);
 
     if (isNaN(amount) || amount <= 0) {
-        console.log("Ingrese un monto válido."); 
-    } else {
-        console.log("Monto ingresado en CLP:", amount); 
+        resultSpan.textContent = "Ingrese un monto válido"; 
+        return;
     }
 }
 
 // Evento Boton
 convertButton.addEventListener("click", handleInput);
 
+// Funcion de obtencion de valores de la api miindicador.cl
 
+const withFetch = () => {
+    fetch(api)
+    .then(res => res.json())
+    .then(data => console.log(data))
+}
+
+withFetch();
