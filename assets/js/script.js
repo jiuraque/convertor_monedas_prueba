@@ -81,18 +81,37 @@ async function updateChart(currency) {
   myChart = new Chart(chartCanvas, {
     type: "line",
     data: {
-      labels: labels,
-      datasets: [
-        {
-          label: `Historial últimos 10 días (${currency.toUpperCase()})`,
-          data: values,
-          borderColor: "blue",
-          backgroundColor: "rgba(0, 0, 255, 0.2)",
-          borderWidth: 2,
-        },
-      ],
+        labels: labels, 
+        datasets: [{
+            label: `Historial últimos 10 días (${currency.toUpperCase()})`,
+            data: values, 
+            borderColor: "blue",
+            backgroundColor: "rgba(255, 255, 255, 0.2)",
+            borderWidth: 2
+        }]
     },
-  });
+    options: {
+        responsive: true, 
+        maintainAspectRatio: false, 
+        plugins: {
+            legend: {
+                labels: {
+                    color: "#000000"
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: { color: "#000000" },
+                grid: { color: "#d3d3d3" }
+            },
+            y: {
+                ticks: { color: "#000000" },
+                grid: { color: "#d3d3d3" }
+            }
+        }
+    }
+});
 }
 
 document.getElementById("currency").addEventListener("change", function () {
